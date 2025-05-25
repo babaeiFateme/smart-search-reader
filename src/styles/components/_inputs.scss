@@ -4,11 +4,14 @@ input {
     border-radius: 0.5rem;
     padding: 1rem;
     font-size: 1rem;
+    font-weight: 500;
 
     &:focus,
     &:active,
-    &:focus-visible {
+    &:focus-visible,
+    &:hover {
         outline: none;
+        border-color: $gray900;
     }
 
     &::placeholder {

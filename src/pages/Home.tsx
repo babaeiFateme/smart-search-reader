@@ -58,20 +58,24 @@ const Home = () => {
                 <TextInput
                     ref={inputRef}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    onKeyDown={handleKeyDown} 
+                    onKeyDown={handleKeyDown}
                     placeholder="Type a keyword ..."
                     className="mb-20"
                 />
 
-                {matchIndexes.length > 0 && (
-                    <>
-                        <span>result: {currentMatch + 1} of {matchIndexes.length}</span>
-                        <div className="controls">
-                            <Button onClick={() => setCurrentMatch((prev) => (prev - 1 + matchIndexes.length) % matchIndexes.length)}>⬆️ Prev</Button>
-                            <Button onClick={() => setCurrentMatch((prev) => (prev + 1) % matchIndexes.length)}>⬇️ Next</Button>
-                        </div>
-                    </>
-                )}
+                {debouncedSearchTerm.trim() ? (
+                    matchIndexes.length > 0 ? (
+                        <>
+                            <span>result: {currentMatch + 1} of {matchIndexes.length}</span>
+                            <div className="controls">
+                                <Button onClick={() => setCurrentMatch((prev) => (prev - 1 + matchIndexes.length) % matchIndexes.length)}> Prev</Button>
+                                <Button onClick={() => setCurrentMatch((prev) => (prev + 1) % matchIndexes.length)}> Next</Button>
+                            </div>
+                        </>
+                    ) : (
+                        <div className="mb-40 empty-state">No results found for <strong>"{debouncedSearchTerm}"</strong>.</div>
+                    )
+                ) : ""}
 
                 <div ref={contentRef} className="fw-400 text-gray description" style={{ maxHeight: "400px", overflowY: "auto" }}>
                     {highlightText(textContent, debouncedSearchTerm, currentMatch)}

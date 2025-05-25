@@ -23,7 +23,7 @@ export function highlightText(
     const regex = new RegExp(`(${keyword})`, "gi");
     const parts = text.split(regex);
 
-    let highlightCount = -1; // شمارش نتایج پیدا شده
+    let highlightCount = -1; 
 
     return parts.map((part, index) => {
         if (regex.test(part)) {

@@ -1,12 +1,13 @@
 
+import { Routes, Route } from 'react-router-dom'
 import './styles/master.scss'
+import Home from './styles/pages/Home'
 
-function App() {
-
+const App = () => {
   return (
-    <>
-Hello
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
   )
 }
 

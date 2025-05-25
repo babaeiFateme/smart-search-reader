@@ -1,8 +1,20 @@
-import type React from "react";
-import type { ITextInput } from "../../../core/types/TextInput.type";
 
-const TextInput: React.FC<ITextInput> = ({ className, ...props }) => {
-    return <input {...props} className={className} type="text" />;
-};
+import type { ITextInput } from "../../../core/types/TextInput.type";
+import { forwardRef } from "react";
+
+const TextInput = forwardRef<HTMLInputElement, ITextInput>(
+    ({ placeholder, className, onChange, onKeyDown }, ref) => {
+        return (
+            <input
+                type="text"
+                placeholder={placeholder}
+                className={className}
+                onChange={onChange}
+                onKeyDown={onKeyDown}
+                ref={ref}
+            />
+        );
+    }
+);
 
 export default TextInput;

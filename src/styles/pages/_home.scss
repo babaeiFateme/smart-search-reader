@@ -11,4 +11,11 @@
         text-align: justify;
         line-height: 2rem;
     }
+
+    .controls{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin: 20px 1px;
+    }
 }

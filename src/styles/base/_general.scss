@@ -7,6 +7,11 @@
 body {
     font-family: "roboto";
     height: 100dvh;
+    padding-top: 30px;
+    
+    @include mq(768) {
+        padding: 20px;
+    }
 }
 
 .text-center {

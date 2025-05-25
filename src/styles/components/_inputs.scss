@@ -1,0 +1,10 @@
+input{
+    width: 100%;
+    border: 1px solid $gray600;
+    border-radius: 0.5rem;
+    padding: 1rem;
+
+    &:focus,&:active,&:focus-visible{
+        outline: none;
+    }
+}

@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    max-width: 800px;
+    margin: auto;
+
+    .description{
+        text-align: justify;
+        line-height: 2rem;
+    }
+}

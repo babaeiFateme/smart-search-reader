@@ -1,5 +1,7 @@
-@import url("./base/_font.scss");
-@import url("./abstracts/_variable.scss");
-@import url("./abstracts/_mixins.scss");
-@import url("./base/_general.scss");
-@import url("./components/_inputs.scss");
+@import "./base/_font";
+@import "./abstracts/_variable";
+@import "./components/_components";
+@import "./components/_inputs";
+@import "./abstracts/_mixins";
+@import "./base/_general";
+@import "./pages/home";

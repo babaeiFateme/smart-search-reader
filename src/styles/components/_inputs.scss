@@ -1,10 +1,18 @@
-input{
+input {
     width: 100%;
     border: 1px solid $gray600;
     border-radius: 0.5rem;
     padding: 1rem;
+    font-size: 1rem;
 
-    &:focus,&:active,&:focus-visible{
+    &:focus,
+    &:active,
+    &:focus-visible {
         outline: none;
+    }
+
+    &::placeholder {
+        color: $gray900;
+        font-size: 1rem;
     }
 }

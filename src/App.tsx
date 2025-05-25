@@ -1,11 +1,11 @@
 
-import './App.css'
+import './styles/master.scss'
 
 function App() {
 
   return (
     <>
-
+Hello
     </>
   )
 }

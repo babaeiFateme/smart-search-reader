@@ -7,12 +7,20 @@
     max-width: 800px;
     margin: auto;
 
-    .description{
+    .header {
+        padding: 10px;
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 10;
+    }
+
+    .description {
         text-align: justify;
         line-height: 2rem;
     }
 
-    .controls{
+    .controls {
         display: flex;
         gap: 10px;
         align-items: center;

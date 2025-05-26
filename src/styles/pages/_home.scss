@@ -27,3 +27,29 @@
         margin: 20px 1px;
     }
 }
+
+.suggestion-list {
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
+    top: 90%;
+    left: 0;
+    background: white;
+    width: 100%;
+    list-style: none;
+    padding: 10px;
+    z-index: 1000;
+
+    li {
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 8px;
+        &:hover{
+            background-color: $gray500;
+
+        }
+        &:last-child{
+            margin-bottom: unset;
+        }
+    }
+}

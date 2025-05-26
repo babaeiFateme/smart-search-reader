@@ -3,6 +3,8 @@ import TextInput from "../components/atoms/TextInput/TextInput";
 import useDebounce from "../core/hooks/useDebounce";
 import { highlightText } from "../components/atoms/HighLightText/HighLightText";
 import Button from "../components/atoms/Button/Button";
+import ArrowDown from "../components/icons/ArrowDown";
+import ArrowUp from "../components/icons/ArrowUp";
 
 const Home = () => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -22,8 +24,11 @@ const Home = () => {
         }
 
         const regex = new RegExp(`(${debouncedSearchTerm})`, "gi");
+
         const matches: number[] = [];
+
         let match;
+
         while ((match = regex.exec(textContent)) !== null) {
             matches.push(match.index);
         }
@@ -34,7 +39,9 @@ const Home = () => {
     useEffect(() => {
         if (contentRef.current && matchIndexes.length > 0) {
             const spans = contentRef.current.querySelectorAll<HTMLSpanElement>(".highlighted");
+
             const targetSpan = spans[currentMatch];
+
             if (targetSpan) {
                 targetSpan.scrollIntoView({ behavior: "smooth", block: "center" });
             }
@@ -43,10 +50,13 @@ const Home = () => {
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (matchIndexes.length === 0) return;
+
         if (event.key === "ArrowDown") {
             event.preventDefault();
             setCurrentMatch((prev) => (prev + 1) % matchIndexes.length);
-        } else if (event.key === "ArrowUp") {
+        }
+
+        else if (event.key === "ArrowUp") {
             event.preventDefault();
             setCurrentMatch((prev) => (prev - 1 + matchIndexes.length) % matchIndexes.length);
         }
@@ -70,8 +80,8 @@ const Home = () => {
                             <>
                                 <span>result: {currentMatch + 1} of {matchIndexes.length}</span>
                                 <div className="controls">
-                                    <Button onClick={() => setCurrentMatch((prev) => (prev - 1 + matchIndexes.length) % matchIndexes.length)}> Prev</Button>
-                                    <Button onClick={() => setCurrentMatch((prev) => (prev + 1) % matchIndexes.length)}> Next</Button>
+                                    <Button onClick={() => setCurrentMatch((prev) => (prev - 1 + matchIndexes.length) % matchIndexes.length)} icon={<ArrowUp />}>Prev</Button>
+                                    <Button onClick={() => setCurrentMatch((prev) => (prev + 1) % matchIndexes.length)} icon={<ArrowDown />}> Next</Button>
                                 </div>
                             </>
                         ) : (

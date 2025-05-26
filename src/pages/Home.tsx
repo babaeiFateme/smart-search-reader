@@ -8,10 +8,15 @@ import ArrowUp from "../components/icons/ArrowUp";
 
 const Home = () => {
     const [searchTerm, setSearchTerm] = useState("");
+
     const debouncedSearchTerm = useDebounce(searchTerm, 500);
+
     const [matchIndexes, setMatchIndexes] = useState<number[]>([]);
+
     const [currentMatch, setCurrentMatch] = useState(0);
+
     const contentRef = useRef<HTMLDivElement>(null);
+    
     const inputRef = useRef<HTMLInputElement>(null);
 
     const [suggestions, setSuggestions] = useState<string[]>([]);
